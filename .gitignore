@@ -1,3 +1,8 @@
+# Heroku
+venv
+*.pyc
+staticfiles
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
