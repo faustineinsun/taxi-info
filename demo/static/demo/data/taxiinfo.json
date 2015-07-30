@@ -1,0 +1,26 @@
+{
+  "data": [
+    {
+      "hack_license": "598CCE5B9C1918568DEE71F43CF26CD2",
+      "pickup_datetime": "2013-01-07 23:34:24",
+      "dropoff_datetime": "2013-01-07 23:34:24",
+      "passenger_count": "3",
+      "trip_distance": "2.10",
+      "pickup_longitude": "-73.97625",
+      "pickup_latitude": "40.748528",
+      "dropoff_longitude": "-74.002586",
+      "dropoff_latitude": "40.747868"
+    },
+    {
+      "hack_license": "998CCE5B9C1918568DEE71F42CF26CD6",
+      "pickup_datetime": "2013-06-07 23:34:24",
+      "dropoff_datetime": "2013-06-07 23:34:24",
+      "passenger_count": "2",
+      "trip_distance": "3.56",
+      "pickup_longitude": "-73.97625",
+      "pickup_latitude": "40.748528",
+      "dropoff_longitude": "-74.002586",
+      "dropoff_latitude": "40.747868"
+    }
+  ]
+}

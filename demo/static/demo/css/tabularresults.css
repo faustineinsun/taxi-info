@@ -1,0 +1,11 @@
+.tabularresults-panel {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 90%;
+    padding: 30px 45px 45px 30px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #D4D1D1;
+    border-radius: 5px;
+}

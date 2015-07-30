@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Tabular Results</title>
+
+        <meta name="description" content="tabular results">
+        <meta name="author" content="Fei Yu">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
+        <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+
+        {% load staticfiles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'demo/css/tabularresults.css' %}" />
+        <script type="text/javascript" src="{% static 'demo/js/tabularresults.js' %}"></script>
+    </head>
+
+    <body>
+
+        <div class="tabularresults-panel">
+            <table id="example" class="display" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>Hack License</th>
+                        <th>Pickup Datetime</th>
+                        <th>Dropoff Datetime</th>
+                        <th>Passenger Count</th>
+                        <th>Trip Distance</th>
+                        <th>Pickup Longitude</th>
+                        <th>Pickup Latitude</th>
+                        <th>Dropoff Longitude</th>
+                        <th>Dropoff Latitude</th>
+                    </tr>
+                </thead>
+
+                <tfoot>
+                    <tr>
+                        <th>Hack License</th>
+                        <th>Pickup Datetime</th>
+                        <th>Dropoff Datetime</th>
+                        <th>Passenger Count</th>
+                        <th>Trip Distance</th>
+                        <th>Pickup Longitude</th>
+                        <th>Pickup Latitude</th>
+                        <th>Dropoff Longitude</th>
+                        <th>Dropoff Latitude</th>
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div>
+
+    </body>
+</html>

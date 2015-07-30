@@ -26,6 +26,7 @@ $(function(){
                         e2.preventDefault();
                         // clear input boxes after a successful login
                         $("input").val("");
+                        // @@ to tabularresults, do this later 
                     });
             } else if (inputusername.val() == "open" && inputpassward.val() != "sesame") {
                 //@@ modify this later: check if inputusername.val() in DB
