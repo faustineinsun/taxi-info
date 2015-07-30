@@ -6,8 +6,8 @@ $ virtualenv venv
 $ source venv/bin/activate
 $ pip install -r requirements.txt
 
-$ python manage.py sqlmigrate demo 0001
-$ python manage.py shell
+$ heroku run python manage.py syncdb
+$ heroku run python manage.py shell
 >>> import django
 >>> django.setup()
 >>> from demo.models import Account
@@ -29,8 +29,6 @@ $ git push       # push to Github
 $ git push heroku master      # push to heroku
 $ heroku open
 
-$ heroku run python manage.py syncdb
-$ heroku run python manage.py shell
 $ heroku logs
 
 $ heroku ps:scale web=1
