@@ -27,6 +27,7 @@ $(function(){
                         // clear input boxes after a successful login
                         $("input").val("");
                         // @@ to tabularresults, do this later 
+                        window.location.href = '/tabularresults';
                     });
             } else if (inputusername.val() == "open" && inputpassward.val() != "sesame") {
                 //@@ modify this later: check if inputusername.val() in DB

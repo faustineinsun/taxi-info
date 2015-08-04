@@ -6,9 +6,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Tabular Results</title>
+        <title>Graphical Summary</title>
 
-        <meta name="description" content="tabular results">
+        <meta name="description" content="graphical summary">
         <meta name="author" content="Fei Yu">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -16,11 +16,9 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-        <link rel="stylesheet" href="{{ STATIC_URL }}static/django_tables2/themes/paleblue/css/screen.css" />
-
         {% load staticfiles %}
-        <link rel="stylesheet" type="text/css" href="{% static 'demo/css/tabularresults.css' %}" />
-        <script type="text/javascript" src="{% static 'demo/js/tabularresults.js' %}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'demo/css/graphicalsummary.css' %}" />
+        <script type="text/javascript" src="{% static 'demo/js/graphicalsummary.js' %}"></script>
     </head>
 
     <body>
@@ -31,10 +29,10 @@
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li class="active">
+                            <li>
                             <a href="/tabularresults">Tabular Results</a>
                             </li>
-                            <li>
+                            <li class="active">
                             <a href="/graphicalsummary">Graphical Summary</a>
                             </li>
                             <li>
@@ -46,10 +44,6 @@
                     </nav>
                 </div>
             </div>
-        </div>
-
-        <div class="tabularresults-panel">
-            {% render_table table %}
         </div>
 
     </body>

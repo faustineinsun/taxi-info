@@ -21,5 +21,6 @@ import demo.views
 urlpatterns = [
     url(r'^$', demo.views.login, name='login'),
     url(r'^tabularresults', demo.views.tabularresults, name='tabularresults'),
+    url(r'^graphicalsummary', demo.views.graphicalsummary, name='graphicalsummary'),
     url(r'^admin/', include(admin.site.urls)),
 ]

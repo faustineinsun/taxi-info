@@ -13,3 +13,6 @@ def tabularresults(request):
     table = RecordTable(Record.objects.all())
     RequestConfig(request).configure(table)
     return render(request, 'tabularresults.html', {"table": table})
+
+def graphicalsummary(request):
+    return render(request, 'graphicalsummary.html')
