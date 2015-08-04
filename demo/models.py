@@ -15,3 +15,14 @@ class Account(models.Model):
         if hasattr(self, '__unicode__'):
             return unicode(self.password).encode('utf-8')
         return self.password
+
+class Record(models.Model):
+    hack_license = models.CharField(max_length=80)
+    pickup_datetime = models.CharField(max_length=40)
+    dropoff_datetime = models.CharField(max_length=40)
+    passenger_count = models.CharField(max_length=40)
+    trip_distance = models.CharField(max_length=40)
+    pickup_longitude = models.CharField(max_length=40)
+    pickup_latitude = models.CharField(max_length=40)
+    dropoff_longitude = models.CharField(max_length=40)
+    dropoff_latitude = models.CharField(max_length=40)
