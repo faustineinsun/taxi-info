@@ -6,6 +6,11 @@ $ virtualenv venv
 $ source venv/bin/activate
 $ pip install -r requirements.txt
 
+$ vim ~/.bash_profile
+export DATABASE_URL=mysql://...
+$ source ~/.bash_profile
+
+// save valid login username and password into MySQL
 $ heroku run python manage.py syncdb
 $ heroku run python manage.py shell
 >>> import django
@@ -19,7 +24,10 @@ $ heroku run python manage.py shell
 'sesame'
 >>> Account.objects.all()
 
-$ foreman start web  # or $ python manage.py runserver
+// save trip data into MySQL 
+python demo/libs/dataprocessing/saveToMySQL.py <path-to>/trip_data_1.csv
+
+$ foreman start web  # not `$ python manage.py runserver` since we use the global variable from .env
 ```
 
 ##### Others
