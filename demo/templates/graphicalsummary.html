@@ -37,6 +37,11 @@
   $.get('/chartall', function(data) { showChart(data); });
   $.get('/houronmap/?h=11', function(data) { showOverlayers(data); });
   </script>
+  <div class="panelGeoJson">
+    <H5 style="color: LightSeaGreen;"> >> Point &bull; : Pickup Position</H5>
+    <H5 style="color: SlateBlue;"> >> Point &bull; : Dropoff Position</H5>
+    <H5 style="color: DarkOrange;"> >> Line &#8212; : Trip from Pickup Point to Dropoff Point</H5>
+  </div>
 
   <div class="container-fluid">
     <div class="row">
@@ -52,7 +57,7 @@
                 <a href="/graphicalsummary">Graphical Summary</a>
               </li>
               <li>
-                <a href="/">Logout</a>
+                <a href="/logout">Logout</a>
               </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

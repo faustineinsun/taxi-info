@@ -1,37 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>taxi-info</title>
+        <title>taxi-info</title>
 
-  <meta name="description" content="Demo">
-  <meta name="author" content="Fei Yu">
+        <meta name="description" content="Demo">
+        <meta name="author" content="Fei Yu">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-  {% load staticfiles %}
-  <link rel="stylesheet" type="text/css" href="{% static 'demo/css/login.css' %}" />
-  <script type="text/javascript" src="{% static 'demo/js/login.js' %}"></script>
-</head>
+        {% load staticfiles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'demo/css/login.css' %}" />
+        <script type="text/javascript" src="{% static 'demo/js/login.js' %}"></script>
+    </head>
 
-<body>
+    <body>  
+        <div class="login-panel">
 
-  <div class="login-panel">
-    <legend>Sign In</legend>
-    <div id="login-info"></div>
-    <div class="login-form">
-      <form>
-        <input type="text" placeholder="username">
-        <input type="password" placeholder="password">
-        <button type="submit" class="btn btn-info btn-block login">Login</button>
-      </form>
-    </div>
-  </div>
+            <legend>Sign In</legend>
 
-</body>
-</html>
+            <div id="login-info"></div>
+
+            {% if form.errors %}  
+            <script>
+                errorLoginMsg("Your username and password didn't match. Please try again.");
+            </script>
+
+            {% endif %}  
+            <form method="post" action="{% url 'django.contrib.auth.views.login' %}">  
+                {% csrf_token %}  
+                <div class="login-form">
+                    <input id="id_username" name="username" maxlength="254" type="text" placeholder="username">
+                    <input id="id_password" name="password" type="password" placeholder="password">
+                </div>
+
+                <br>
+                <input id = "submitbutton" type="submit" class="btn btn-info btn-block login" value="login" />  
+                <input id = "successlogin" type="hidden" name="next" value="/tabularresults" />  
+            </form>  
+
+        </div>
+    </body>  
+</html>  

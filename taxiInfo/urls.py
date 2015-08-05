@@ -19,7 +19,8 @@ from django.contrib import admin
 import demo.views
 
 urlpatterns = [
-    url(r'^$', demo.views.login, name='login'),
+    url(r'^$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}), 
+    url(r'^logout/$', 'django.contrib.auth.views.logout', {'template_name': 'login.html'}),  
     url(r'^tabularresults', demo.views.tabularresults, name='tabularresults'),
     url(r'^graphicalsummary', demo.views.graphicalsummary, name='graphicalsummary'),
     url(r'^chartmorning', demo.views.chartmorning),
