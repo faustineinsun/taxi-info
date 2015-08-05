@@ -27,5 +27,6 @@ urlpatterns = [
     url(r'^chartevening', demo.views.chartevening),
     url(r'^chartnight', demo.views.chartnight),
     url(r'^chartall', demo.views.chartall),
+    url(r'^houronmap/$', demo.views.houronmap),
     url(r'^admin/', include(admin.site.urls)),
 ]

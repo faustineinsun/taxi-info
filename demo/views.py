@@ -9,6 +9,7 @@ from rest_framework.response import Response
 import os
 import urlparse
 import redis
+import json
 
 url = urlparse.urlparse(os.environ.get('REDISCLOUD_URL'))
 r = redis.Redis(host=url.hostname, port=url.port, password=url.password)
@@ -44,4 +45,13 @@ def chartnight(request):
 @api_view(['GET'])
 def chartall(request):
     return Response(r.get("passengercount:all"))
+
+@api_view(['GET'])
+def houronmap(request):
+    h = request.GET['h']
+    ary = [None]*3
+    ary[0] = r.get("geojson:lines:"+str(h)) 
+    ary[1] = r.get("geojson:startpoints:"+str(h)) 
+    ary[2] = r.get("geojson:endpoints:"+str(h)) 
+    return Response(ary)
 
