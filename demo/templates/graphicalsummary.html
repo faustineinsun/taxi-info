@@ -35,8 +35,7 @@
             <chart id="passengerCountChart"></chart>
         </div>
         <script type="text/javascript">
-            var data = "[[0,9],[1,9],[1,3],[2,3],[2,8],[3,5],[4,7],[5,3],[6,0]]";
-            showChart(data)
+            $.get('/chartall', function(data) { showChart(data); });
         </script>
 
         <div class="container-fluid">
@@ -72,14 +71,28 @@
                                 <li>
                                 <a href="#" id = "optnight">Night: 0:00 - 06:00</a>
                                 </li>
+                                <li>
+                                <a href="#" id = "optall">All: 0:00 - 24:00</a>
+                                </li>
                             </ul>
                             </li>
                         </ul>
                     </div>
                     <script type="text/javascript">
                         $("#optmorning").on("click", function() {
-                                var data = "[[0,8],[1,8],[1,3],[2,3],[2,8],[3,5],[4,7],[5,3],[6,0]]";
-                                showChart(data)
+                                $.get('/chartmorning', function(data) { showChart(data); });
+                                });
+                        $("#optafternoon").on("click", function() {
+                                $.get('/chartafternoon', function(data) { showChart(data); });
+                                });
+                        $("#optevening").on("click", function() {
+                                $.get('/chartevening', function(data) { showChart(data); });
+                                });
+                        $("#optnight").on("click", function() {
+                                $.get('/chartnight', function(data) { showChart(data); });
+                                });
+                        $("#optall").on("click", function() {
+                                $.get('/chartall', function(data) { showChart(data); });
                                 });
                     </script>
 

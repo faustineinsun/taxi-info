@@ -31,7 +31,7 @@ function showChart(data) {
 
     var margin = {
         top: 20,
-        left: 40,
+        left: 50,
         right: 20,
         bottom: 40 
     };
@@ -53,8 +53,8 @@ function showChart(data) {
         .y(function(d) { return yScale(d[1]); });
 
     var g = svg.append('g').attr('transform', 'translate(' + margin.left + ', ' + margin.top + ')');
-    var xAxisColor='x axisWithoutML';
-    var yAxisColor='x axisWithoutML';
+    var xAxisColor='x axiscolor';
+    var yAxisColor='x axiscolor';
 
     g.append('path')
     .datum(data);
@@ -75,7 +75,7 @@ function showChart(data) {
     .append('text')
     .attr('transform', 'rotate(-90)')
     .attr('x', -180)
-    .attr('y', -40)
+    .attr('y', -50)
     .attr('dy', '.71em')
     .attr('text-anchor', 'end')
     .text(yLabel);
@@ -92,7 +92,7 @@ function showChart(data) {
     .attr('cy', function(d) {
         return yScale(d[1]);
     })
-    .attr('r', 5)
+    .attr('r', 1)
         .attr('class', 'circle');
 
     var focus = g.append('g').style('display', 'none');

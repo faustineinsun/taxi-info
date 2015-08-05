@@ -22,64 +22,19 @@ chart {
     border-radius: 10px;
 }
 
-.axisWithoutML path,
-.axisWithoutML line {
+.axiscolor path,
+.axiscolor line {
   fill: none;
   stroke: LightSeaGreen;
   shape-rendering: crispEdges;
 }
 
-.x.axisWithoutML {
+.x.axiscolor {
   fill: LightSeaGreen;
 }
 
-.y.axisWithoutML {
+.y.axiscolor {
   fill: LightSeaGreen;
-}
-
-.axisXGBoost path,
-.axisXGBoost line {
-  fill: none;
-  stroke: LightSeaGreen;
-  shape-rendering: crispEdges;
-}
-
-.x.axisXGBoost {
-  fill: SandyBrown;
-}
-
-.y.axisXGBoost {
-  fill: SandyBrown;
-}
-
-.axisRandomForest path,
-.axisRandomForest line {
-  fill: none;
-  stroke: LightSeaGreen;
-  shape-rendering: crispEdges;
-}
-
-.x.axisRandomForest {
-  fill: LightCoral;
-}
-
-.y.axisRandomForest {
-  fill: LightCoral;
-}
-
-.axisH2ODeepLearning path,
-.axisH2ODeepLearning line {
-  fill: none;
-  stroke: LightSeaGreen;
-  shape-rendering: crispEdges;
-}
-
-.x.axisH2ODeepLearning {
-  fill: MediumVioletRed;
-}
-
-.y.axisH2ODeepLearning {
-  fill: MediumVioletRed;
 }
 
 .line {
@@ -89,15 +44,9 @@ chart {
 }
 
 .circle {
-    fill: white;
-    stroke: LightSeaGreen;
-    stroke-width: 2px;
-}
-
-.area {
     fill: LightSeaGreen;
-    stroke: none;
-    opacity: 0.1;
+    stroke: LightSeaGreen;
+    stroke-width: 0.2px;
 }
 
 .zeroline {

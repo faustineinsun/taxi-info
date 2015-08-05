@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_tables2',
+    'rest_framework',
     'demo',
 )
 TEMPLATE_CONTEXT_PROCESSORS = (

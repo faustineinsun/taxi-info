@@ -64,14 +64,30 @@ def savePassengerCountInfoToRedis():
     print passengerCountByHour
     redis_url = os.getenv('REDISTOGO_URL', 'redis://localhost:6379')
     r = redis.from_url(redis_url)
-    r.set("passengercount:night", night)
-    r.set("passengercount:morning", morning)
-    r.set("passengercount:afternoon", afternoon)
-    r.set("passengercount:evening", evening)
+    r.set("passengercount:night", generateChartData(0,6,night))
+    r.set("passengercount:morning", generateChartData(6,6,morning))
+    r.set("passengercount:afternoon", generateChartData(12,6,afternoon))
+    r.set("passengercount:evening", generateChartData(18,6,evening))
+    r.set("passengercount:all", generateChartData(0,24,passengerCountByHour))
     print r.get("passengercount:night")
     print r.get("passengercount:morning")
     print r.get("passengercount:afternoon")
     print r.get("passengercount:evening")
+    print r.get("passengercount:all")
+
+def generateChartData(offset,size,ary):
+    chartAry = [None]*size*2
+    for i in range(0,size*2):
+        tuple = [None]*2
+        chartIdx = offset 
+        if i%2 == 0:
+            chartIdx += int(i/2)
+        else:
+            chartIdx += int(i/2)+1
+        tuple[0] = chartIdx 
+        tuple[1] = ary[int(i/2)] 
+        chartAry[i] = tuple
+    return chartAry
 
 if __name__ == '__main__':
     connect()
