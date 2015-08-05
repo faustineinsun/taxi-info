@@ -16,35 +16,63 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+        <script src="https://mapzen.com/tangram/tangram.min.js"></script>
+
         {% load staticfiles %}
         <link rel="stylesheet" type="text/css" href="{% static 'demo/css/graphicalsummary.css' %}" />
-        <script type="text/javascript" src="{% static 'demo/js/graphicalsummary.js' %}"></script>
     </head>
 
     <body>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+        <div id="map" class="leaflet-container leaflet-fade-anim"></div>
+        <script type="text/javascript" src="{% static 'demo/js/graphicalsummary.js' %}"></script>
+        <script type="text/javascript">
+            window.addEventListener("hashchange",function(){parent.postMessage(window.location.hash, "*")});
+            </script>
 
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li>
-                            <a href="/tabularresults">Tabular Results</a>
-                            </li>
-                            <li class="active">
-                            <a href="/graphicalsummary">Graphical Summary</a>
-                            </li>
-                            <li>
-                            <a href="/">Logout</a>
-                            </li>
-                        </ul>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <nav class="navbar navbar-default navbar-inverse " role="navigation">
+
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                <li>
+                                <a href="/tabularresults">Tabular Results</a>
+                                </li>
+                                <li class="active">
+                                <a href="/graphicalsummary">Graphical Summary</a>
+                                </li>
+                                <li>
+                                <a href="/">Logout</a>
+                                </li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Charts & Graphs<strong class="caret"></strong></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                    <a href="#">Morning: 06:00 - 12:00</a>
+                                    </li>
+                                    <li>
+                                    <a href="#">Afternoon: 12:00 - 18:00</a>
+                                    </li>
+                                    <li>
+                                    <a href="#">Evening: 18:00 - 0:00/24:00</a>
+                                    </li>
+                                    <li>
+                                    <a href="#">Night: 0:00 - 06:00</a>
+                                    </li>
+                                </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        </nav>
                     </div>
-
-                    </nav>
                 </div>
             </div>
-        </div>
 
-    </body>
-</html>
+        </body>
+    </html>
