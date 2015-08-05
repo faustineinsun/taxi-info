@@ -1,105 +1,105 @@
-{% load render_table from django_tables2 %}
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Graphical Summary</title>
+  <title>Graphical Summary</title>
 
-        <meta name="description" content="graphical summary">
-        <meta name="author" content="Fei Yu">
+  <meta name="description" content="graphical summary">
+  <meta name="author" content="Fei Yu">
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
-        <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
-        <script src="//mapzen.com/tangram/tangram.min.js"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+  <script src="//mapzen.com/tangram/tangram.min.js"></script>
 
-        <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
 
-        {% load staticfiles %}
-        <link rel="stylesheet" type="text/css" href="{% static 'demo/css/graphicalsummary.css' %}" />
-    </head>
+  {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" href="{% static 'demo/css/graphicalsummary.css' %}" />
+</head>
 
-    <body>
-        <div id="map" class="leaflet-container leaflet-fade-anim"></div>
-        <script type="text/javascript" src="{% static 'demo/js/graphicalsummary.js' %}"></script>
-        <script type="text/javascript"> window.addEventListener("hashchange",function(){parent.postMessage(window.location.hash, "*")}); </script>
+<body>
+  <div id="map" class="leaflet-container leaflet-fade-anim"></div>
+  <script type="text/javascript" src="{% static 'demo/js/graphicalsummary.js' %}"></script>
+  <script type="text/javascript"> window.addEventListener("hashchange",function(){parent.postMessage(window.location.hash, "*")}); </script>
 
-        <div class="paneloverlayer">
-            <chart id="passengerCountChart"></chart>
-        </div>
-        <script type="text/javascript">
-            $.get('/chartall', function(data) { showChart(data); });
-        </script>
+  <div class="paneloverlayer">
+    <chart id="passengerCountChart"></chart>
+  </div>
+  <script type="text/javascript">
+  $.get('/chartall', function(data) { showChart(data); });
+  </script>
 
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <nav class="navbar navbar-default navbar-inverse " role="navigation">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <nav class="navbar navbar-default navbar-inverse " role="navigation">
 
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li>
-                            <a href="/tabularresults">Tabular Results</a>
-                            </li>
-                            <li class="active">
-                            <a href="/graphicalsummary">Graphical Summary</a>
-                            </li>
-                            <li>
-                            <a href="/">Logout</a>
-                            </li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Charts & Graphs<strong class="caret"></strong></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                <a href="#" id = "optmorning">Morning: 06:00 - 12:00</a>
-                                </li>
-                                <li>
-                                <a href="#" id = "optafternoon">Afternoon: 12:00 - 18:00</a>
-                                </li>
-                                <li>
-                                <a href="#" id = "optevening">Evening: 18:00 - 0:00/24:00</a>
-                                </li>
-                                <li>
-                                <a href="#" id = "optnight">Night: 0:00 - 06:00</a>
-                                </li>
-                                <li>
-                                <a href="#" id = "optall">All: 0:00 - 24:00</a>
-                                </li>
-                            </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <script type="text/javascript">
-                        $("#optmorning").on("click", function() {
-                                $.get('/chartmorning', function(data) { showChart(data); });
-                                });
-                        $("#optafternoon").on("click", function() {
-                                $.get('/chartafternoon', function(data) { showChart(data); });
-                                });
-                        $("#optevening").on("click", function() {
-                                $.get('/chartevening', function(data) { showChart(data); });
-                                });
-                        $("#optnight").on("click", function() {
-                                $.get('/chartnight', function(data) { showChart(data); });
-                                });
-                        $("#optall").on("click", function() {
-                                $.get('/chartall', function(data) { showChart(data); });
-                                });
-                    </script>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li>
+                <a href="/tabularresults">Tabular Results</a>
+              </li>
+              <li class="active">
+                <a href="/graphicalsummary">Graphical Summary</a>
+              </li>
+              <li>
+                <a href="/">Logout</a>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Charts & Graphs<strong class="caret"></strong></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="#" id = "optmorning">Morning: 06:00 - 12:00</a>
+                  </li>
+                  <li>
+                    <a href="#" id = "optafternoon">Afternoon: 12:00 - 18:00</a>
+                  </li>
+                  <li>
+                    <a href="#" id = "optevening">Evening: 18:00 - 0:00/24:00</a>
+                  </li>
+                  <li>
+                    <a href="#" id = "optnight">Night: 0:00 - 06:00</a>
+                  </li>
+                  <li>
+                    <a href="#" id = "optall">All: 0:00 - 24:00</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
 
-                    </nav>
-                </div>
-            </div>
-        </div>
+        </nav>
+      </div>
+    </div>
+  </div>
 
-    </body>
+  <script type="text/javascript">
+  $("#optmorning").on("click", function() {
+    $.get('/chartmorning', function(data) { showChart(data); });
+  });
+  $("#optafternoon").on("click", function() {
+    $.get('/chartafternoon', function(data) { showChart(data); });
+  });
+  $("#optevening").on("click", function() {
+    $.get('/chartevening', function(data) { showChart(data); });
+  });
+  $("#optnight").on("click", function() {
+    $.get('/chartnight', function(data) { showChart(data); });
+  });
+  $("#optall").on("click", function() {
+    $.get('/chartall', function(data) { showChart(data); });
+  });
+  </script>
+
+</body>
 </html>

@@ -85,6 +85,23 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'taxiInfo.wsgi.application'
 
+# Redis cloud on Heroku
+# https://devcenter.heroku.com/articles/rediscloud#using-redis-from-python
+'''
+urlparse.uses_netloc.append('redis')
+redis_url = urlparse.urlparse(os.environ.get('REDISCLOUD_URL'))
+CACHES = {
+    'default': {
+        'BACKEND': 'redis_cache.RedisCache',
+        'LOCATION': '%s:%s' % (redis_url.hostname, redis_url.port),
+        'OPTIONS': {
+            'PASSWORD': redis_url.password,
+            'DB': 0,
+        }
+    }
+}
+'''
+
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 

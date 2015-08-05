@@ -62,8 +62,8 @@ def savePassengerCountInfoToRedis():
         else:
             evening[hour-18] = passengerCountByHour[hour]
     print passengerCountByHour
-    redis_url = os.getenv('REDISTOGO_URL', 'redis://localhost:6379')
-    r = redis.from_url(redis_url)
+    url = urlparse.urlparse(os.environ.get('REDISCLOUD_URL'))
+    r = redis.Redis(host=url.hostname, port=url.port, password=url.password)
     r.set("passengercount:night", generateChartData(0,6,night))
     r.set("passengercount:morning", generateChartData(6,6,morning))
     r.set("passengercount:afternoon", generateChartData(12,6,afternoon))

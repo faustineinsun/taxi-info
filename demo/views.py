@@ -5,13 +5,15 @@ from django_tables2   import RequestConfig
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-import redis
+#from django.core.cache import cache
 import os
+import urlparse
+import redis
+
+url = urlparse.urlparse(os.environ.get('REDISCLOUD_URL'))
+r = redis.Redis(host=url.hostname, port=url.port, password=url.password)
 
 # Create your views here.
-redis_url = os.getenv('REDISTOGO_URL', 'redis://127.0.0.1:6379')
-r = redis.from_url(redis_url)
-
 def login(request):
     return render(request, 'login.html')
 
