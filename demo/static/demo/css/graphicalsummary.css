@@ -4,3 +4,125 @@
     width: 100%;
     position: absolute;
 }
+
+chart {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.paneloverlayer {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    left: 0px;
+    top: 60px;
+    background: rgba(2, 2, 2, 0.3);
+    opacity: 0.8;
+    border-radius: 10px;
+}
+
+.axisWithoutML path,
+.axisWithoutML line {
+  fill: none;
+  stroke: LightSeaGreen;
+  shape-rendering: crispEdges;
+}
+
+.x.axisWithoutML {
+  fill: LightSeaGreen;
+}
+
+.y.axisWithoutML {
+  fill: LightSeaGreen;
+}
+
+.axisXGBoost path,
+.axisXGBoost line {
+  fill: none;
+  stroke: LightSeaGreen;
+  shape-rendering: crispEdges;
+}
+
+.x.axisXGBoost {
+  fill: SandyBrown;
+}
+
+.y.axisXGBoost {
+  fill: SandyBrown;
+}
+
+.axisRandomForest path,
+.axisRandomForest line {
+  fill: none;
+  stroke: LightSeaGreen;
+  shape-rendering: crispEdges;
+}
+
+.x.axisRandomForest {
+  fill: LightCoral;
+}
+
+.y.axisRandomForest {
+  fill: LightCoral;
+}
+
+.axisH2ODeepLearning path,
+.axisH2ODeepLearning line {
+  fill: none;
+  stroke: LightSeaGreen;
+  shape-rendering: crispEdges;
+}
+
+.x.axisH2ODeepLearning {
+  fill: MediumVioletRed;
+}
+
+.y.axisH2ODeepLearning {
+  fill: MediumVioletRed;
+}
+
+.line {
+  fill: none;
+  stroke: LightSeaGreen;
+  stroke-width: 2px;
+}
+
+.circle {
+    fill: white;
+    stroke: LightSeaGreen;
+    stroke-width: 2px;
+}
+
+.area {
+    fill: LightSeaGreen;
+    stroke: none;
+    opacity: 0.1;
+}
+
+.zeroline {
+    fill: none;
+    stroke: LightSeaGreen;
+    stroke-width: 0.5px;
+    stroke-dasharray: 5 5;
+}
+
+.zerolinetext {
+    fill: LightSeaGreen;
+}
+
+.overlay {
+    fill: none;
+    stroke: none;
+    pointer-events: all;
+}
+
+.focusLine {
+    fill: none;
+    stroke: LightSeaGreen;
+    stroke-width: 0.5px;
+}
+
+.focusCircle {
+    fill: LightSeaGreen;
+}

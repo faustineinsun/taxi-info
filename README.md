@@ -8,6 +8,7 @@ $ pip install -r requirements.txt
 
 $ vim ~/.bash_profile
 export DATABASE_URL=mysql://...
+export REDISCLOUD_URL=redis://...
 $ source ~/.bash_profile
 
 // save valid login username and password into MySQL
