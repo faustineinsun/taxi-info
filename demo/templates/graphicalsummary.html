@@ -37,6 +37,11 @@
   $.get('/chartall', function(data) { showChart(data); });
   $.get('/houronmap/?h=11', function(data) { showOverlayers(data); });
   </script>
+  <div class="panelGeoJson">
+    <H5 style="color: LightSeaGreen;"> >> Point &bull; : Pickup Position</H5>
+    <H5 style="color: SlateBlue;"> >> Point &bull; : Dropoff Position</H5>
+    <H5 style="color: DarkOrange;"> >> Line &#8212; : Trip from Pickup Point to Dropoff Point</H5>
+  </div>
 
   <div class="container-fluid">
     <div class="row">
@@ -45,19 +50,13 @@
 
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li>
-                <a href="/tabularresults">Tabular Results</a>
-              </li>
               <li class="active">
-                <a href="/graphicalsummary">Graphical Summary</a>
-              </li>
-              <li>
-                <a href="/">Logout</a>
+                <a href="/">NYC Taxi Trip Data Visualization</a>
               </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Charts & Graphs<strong class="caret"></strong></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Passenger Count Over Time<strong class="caret"></strong></a>
                 <ul class="dropdown-menu">
                   <li> <a href="#" id = "optmorning">Morning: 06:00 - 12:00</a> </li>
                   <li> <a href="#" id = "optafternoon">Afternoon: 12:00 - 18:00</a> </li>
@@ -135,6 +134,8 @@
   $("#hour22").on("click", function() { $.get('/houronmap/?h=22', function(data) { showOverlayers(data); }); });
   $("#hour23").on("click", function() { $.get('/houronmap/?h=23', function(data) { showOverlayers(data); }); });
   </script>
+
+  <a href="https://github.com/faustineinsun/taxi-info"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
 
 </body>
 </html>

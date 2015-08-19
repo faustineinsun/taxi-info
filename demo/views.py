@@ -1,10 +1,12 @@
 from django.http import HttpResponse
-from demo.models import Record 
-from demo.tables  import RecordTable
 from django_tables2   import RequestConfig
+#from django.contrib.auth.decorators import login_required
+#from django.contrib.auth import logout
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from demo.models import Record, Account 
+from demo.tables  import RecordTable
 #from django.core.cache import cache
 import os
 import urlparse
@@ -15,8 +17,12 @@ url = urlparse.urlparse(os.environ.get('REDISCLOUD_URL'))
 r = redis.Redis(host=url.hostname, port=url.port, password=url.password)
 
 # Create your views here.
-def login(request):
-    return render(request, 'login.html')
+#def login(request):
+    #    return render(request, 'login.html')
+
+def logout_view(request): 
+    logout(request)
+    return HttpResponseRedirect('/')
 
 def tabularresults(request):
     table = RecordTable(Record.objects.all())
@@ -54,4 +60,3 @@ def houronmap(request):
     ary[1] = r.get("geojson:startpoints:"+str(h)) 
     ary[2] = r.get("geojson:endpoints:"+str(h)) 
     return Response(ary)
-

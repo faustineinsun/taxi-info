@@ -16,22 +16,22 @@ map.setView([40.7594, -74.0027], 13) //NYC
 var linestyle = {
   "color": "DarkOrange",
   "weight": 2,
-  "opacity": 0.6
+  "opacity": 0.8
 };
 var startpointstyle = {
-  radius: 3,
+  radius: 2,
   fillColor: "LightSeaGreen",
   color: "PaleGreen",
   weight: 0,
-  opacity: 0.5,
+  opacity: 0,
   fillOpacity: 0.8
 };
 var endpointstyle = {
-  radius: 3,
+  radius: 2,
   fillColor: "SlateBlue",
   color: "PaleGreen",
   weight: 0,
-  opacity: 0.5,
+  opacity: 0,
   fillOpacity: 0.8
 };
 
