@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django_tables2   import RequestConfig
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth import logout
+#from django.contrib.auth.decorators import login_required
+#from django.contrib.auth import logout
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -20,47 +20,38 @@ r = redis.Redis(host=url.hostname, port=url.port, password=url.password)
 #def login(request):
     #    return render(request, 'login.html')
 
-@login_required(login_url="/") 
 def logout_view(request): 
     logout(request)
     return HttpResponseRedirect('/')
 
-@login_required(login_url='/')
 def tabularresults(request):
     table = RecordTable(Record.objects.all())
     RequestConfig(request).configure(table)
     return render(request, 'tabularresults.html', {"table": table})
 
-@login_required(login_url="/") 
 def graphicalsummary(request):
     return render(request, 'graphicalsummary.html')
 
-@login_required(login_url="/") 
 @api_view(['GET'])
 def chartmorning(request):
     return Response(r.get("passengercount:morning"))
 
-@login_required(login_url="/") 
 @api_view(['GET'])
 def chartafternoon(request):
     return Response(r.get("passengercount:afternoon"))
 
-@login_required(login_url="/") 
 @api_view(['GET'])
 def chartevening(request):
     return Response(r.get("passengercount:evening"))
 
-@login_required(login_url="/") 
 @api_view(['GET'])
 def chartnight(request):
     return Response(r.get("passengercount:night"))
 
-@login_required(login_url="/") 
 @api_view(['GET'])
 def chartall(request):
     return Response(r.get("passengercount:all"))
 
-@login_required(login_url="/") 
 @api_view(['GET'])
 def houronmap(request):
     h = request.GET['h']
