@@ -37,6 +37,11 @@
   $.get('/chartall', function(data) { showChart(data); });
   $.get('/houronmap/?h=11', function(data) { showOverlayers(data); });
   </script>
+  <div class="panelGeoJson">
+    <H5 style="color: LightSeaGreen;"> >> Point &bull; : Pickup Position</H5>
+    <H5 style="color: SlateBlue;"> >> Point &bull; : Dropoff Position</H5>
+    <H5 style="color: DarkOrange;"> >> Line &#8212; : Trip from Pickup Point to Dropoff Point</H5>
+  </div>
 
   <div class="container-fluid">
     <div class="row">
@@ -45,14 +50,8 @@
 
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li>
-                <a href="/tabularresults">Tabular Results</a>
-              </li>
               <li class="active">
-                <a href="/graphicalsummary">Graphical Summary</a>
-              </li>
-              <li>
-                <a href="/">Logout</a>
+                <a href="/">NYC Taxi Trip Data Visualization</a>
               </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

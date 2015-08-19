@@ -19,14 +19,11 @@ from django.contrib import admin
 import demo.views
 
 urlpatterns = [
-    url(r'^$', demo.views.login, name='login'),
-    url(r'^tabularresults', demo.views.tabularresults, name='tabularresults'),
-    url(r'^graphicalsummary', demo.views.graphicalsummary, name='graphicalsummary'),
+    url(r'^$', demo.views.graphicalsummary, name='graphicalsummary'),
     url(r'^chartmorning', demo.views.chartmorning),
     url(r'^chartafternoon', demo.views.chartafternoon),
     url(r'^chartevening', demo.views.chartevening),
     url(r'^chartnight', demo.views.chartnight),
     url(r'^chartall', demo.views.chartall),
     url(r'^houronmap/$', demo.views.houronmap),
-    url(r'^admin/', include(admin.site.urls)),
 ]

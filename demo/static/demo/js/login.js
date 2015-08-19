@@ -8,6 +8,9 @@ function successLoginMsg(message) {
     $("#login-info").addClass("alert alert-success").html(message);
 }
 
+
+// deprecated, using Django Authorization System instead
+/*
 $(function(){
     var inputusername = $("input[type=text]");
     var inputpassward = $("input[type=password]");
@@ -44,3 +47,4 @@ $(function(){
         }
     });
 });
+*/
